@@ -1,0 +1,19 @@
+ {% extends "base.html" %}
+{% block content %}
+    <div class="container py-5">
+
+    <form class="container mx-auto card py-4" action="{% url 'update-data' id=Data.id %}" method="post" >
+        {% csrf_token %}
+        <div class="ms-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" name="name" value="{{Data.name}}" required >
+        </div>
+        <div class="ms-3">
+            <label for="msg" class="form-label">Massage</label>
+            <input type="text" class="form-control" name="msg" value="{{Data.msg}}" required>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary center">Submit</button>
+    </form>
+</div>
+{% endblock %}
